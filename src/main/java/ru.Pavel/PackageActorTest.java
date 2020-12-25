@@ -10,7 +10,7 @@ import akka.japi.pf.ReceiveBuilder;
 public class PackageActorTest extends AbstractActor {
  private  ActorSelection testPerformerRouter = getContext().actorSelection("/user/testPerformerActor");
 
- public Receive createReveive() {
+ public Receive createReceive() {
      return ReceiveBuilder.create()
              .match(PackageMessageTest.class, m -> {
                  for (Test test: m.getTests()) {

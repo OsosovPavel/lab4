@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ActorStore extends AbstractActor {
-    private Map<Integer>, ArrayList<Test>> store = new HashMap<Integer>, ArrayList<Test>>();
+    private Map<Integer, ArrayList<Test>> store = new HashMap<Integer, ArrayList<Test>>();
 
     @Override
     public Receive createReceive() {
@@ -22,7 +22,7 @@ public class ActorStore extends AbstractActor {
                         store.put(m.getPackageId(), m.getTest());
                     }
                 })
-                .match(MessageGet.class, reg -> {
+                .match(MessageGet.class, req -> {
                     sender().tell(
                             new MessageStore(req.getPackageId(), store.get(req.getPackageId())), self()
                     );

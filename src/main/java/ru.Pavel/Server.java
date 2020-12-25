@@ -23,7 +23,7 @@ import static akka.http.javadsl.server.Directives.*;
 
 public class Server {
     private ActorRef storeActor;
-    private final String STORE_ACTOR = "storeActor"
+    private final String STORE_ACTOR = "storeActor";
 
     private ActorRef testPerformerActor;
     private final String TEST_PERFORMER_ACTOR = "testPerformerActor";

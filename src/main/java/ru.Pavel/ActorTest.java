@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 
 public class ActorTest extends AbstractActor{
-  private ActorSelection storeActor = getContext().actorSelection("/user/storeActor");
+  private ActorSelection actorStore = getContext().actorSelection("/user/actorStore");
   private final String SCRIPT_BY_NAME = "nashorn";
 
   private ArrayList<Test> runTest(String jsScript, String functionName, String testName,
