@@ -24,8 +24,8 @@ public class ActorStore extends AbstractActor {
                 })
                 .match(MessageGet.class, reg -> {
                     sender().tell(
-                            new MessageStore(req.getPackageId(), store.get(req.getPackageId())), self();
-                    )
+                            new MessageStore(req.getPackageId(), store.get(req.getPackageId())), self()
+                    );
                 })
                 .build();
     }

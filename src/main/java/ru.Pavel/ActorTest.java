@@ -30,7 +30,7 @@ public class ActorTest extends AbstractActor{
   }
 
   @Override
-    public Receive createRecaive() {
+    public Receive createReceive() {
       return ReceiveBuilder.create()
               .match(MessageTest.class, m -> {
                   ActorStore.tell(new MessageStore(m.getPackageId(),

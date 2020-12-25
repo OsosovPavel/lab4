@@ -1,2 +1,4 @@
-package ru.Pavel;public class RoundRobinPool {
+package ru.Pavel;
+
+public class RoundRobinPool {
 }

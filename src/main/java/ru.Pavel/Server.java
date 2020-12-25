@@ -37,20 +37,20 @@ public class Server {
     private static final Integer TIME_OUT_MILLIS = 5000;
 
     private Server(final ActorSystem system) {
-        storeActor = system.actorOf(Props.create(StoreActor.class), STORE_ACTOR);
+        storeActor = system.actorOf(Props.create(ActorStore.class), STORE_ACTOR);
         testPackageActor = system.actorOf(Props.create(PackageActorTest.class), TEST_PACKAGE_ACTOR);
         testPerformerActor = system.actorOf(new RoundRobinPool(NUMBER_OF_POOLS)).props(Props.create(ActorTest.class)),TEST_PERFORMER_ACTOR);
     }
     private Route createRoute() {
-        return Route(
+        return route(
                 get(() ->
                 parameter ("packageId", (packageId) -> {
                         CompletionStage < Object > result = PatternsCS.ask(
                                 storeActor,
-                                new GetMessage(Integer.parseInt(packageId)), TIME_OUT_MILLIS);
+                                new MessageGet(Integer.parseInt(packageId)), TIME_OUT_MILLIS);
         return completeOKWithFuture (result, Jackson.marshaller());
                     })),
-        post(()
+        post(() ->
                 entity(Jackson.unmarshaller(PackageMessageTest.class), msg -> {
                     testPackageActor.tell(msg, ActorRef.noSender());
                     return complete("Test started!");
