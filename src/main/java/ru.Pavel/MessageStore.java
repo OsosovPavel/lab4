@@ -1,2 +1,4 @@
-package ru.Pavel;public class MessageStore {
+package ru.Pavel;
+
+public class MessageStore {
 }

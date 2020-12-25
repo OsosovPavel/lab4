@@ -38,8 +38,8 @@ public class Server {
 
     private Server(final ActorSystem system) {
         storeActor = system.actorOf(Props.create(StoreActor.class), STORE_ACTOR);
-        testPackageActor = system.actorOf(Props.create(TestPackageActor.class), TEST_PACKAGE_ACTOR);
-        testPerformerActor = system.actorOf(new RoundRobinPool(NUMBER_OF_POOLS)).props(Props.create(TestActor.class)),TEST_PERFORMER_ACTOR);
+        testPackageActor = system.actorOf(Props.create(PackageActorTest.class), TEST_PACKAGE_ACTOR);
+        testPerformerActor = system.actorOf(new RoundRobinPool(NUMBER_OF_POOLS)).props(Props.create(ActorTest.class)),TEST_PERFORMER_ACTOR);
     }
     private Route createRoute() {
         return Route(
