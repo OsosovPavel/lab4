@@ -1,2 +1,4 @@
-package ru.Pavel;public class MessageGet {
+package ru.Pavel;
+
+public class MessageGet {
 }
