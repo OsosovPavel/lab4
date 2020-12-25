@@ -1,2 +1,4 @@
-package ru.Pavel;public class Test {
+package ru.Pavel;
+
+public class Test {
 }
