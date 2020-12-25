@@ -26,7 +26,7 @@ public class PackageMessageTest {
     PackageMessageTest(@JsonProperty(PACKAGE_ID)int packageId, @JsonProperty(JS_SCRIPT) String jsScript,
                        @JsonProperty(FUNCTION_NAME) String functionName, @JsonProperty(TESTS) ArrayList<Test> tests ) {
         this.packageId = packageId;
-        this.jsScript = jsScript:
+        this.jsScript = jsScript;
         this.functionName = functionName;
         this.tests = tests;
     }

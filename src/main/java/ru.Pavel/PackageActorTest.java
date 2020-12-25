@@ -15,9 +15,9 @@ public class PackageActorTest extends AbstractActor {
              .match(PackageMessageTest.class, m -> {
                  for (Test test: m.getTests()) {
                      testPerformerRouter
-                             .tell(new TestMessage(m.getPackageId(), m.getJsScript(), m.getFunctionName(), test), self());
+                             .tell(new MessageTest(m.getPackageId(), m.getJsScript(), m.getFunctionName(), test), self());
                  }
              })
-             .build()
+             .build();
  }
 }
